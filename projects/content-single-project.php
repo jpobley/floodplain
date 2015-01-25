@@ -50,7 +50,7 @@ $client_info = array_filter(array($deets["client"], $deets["date"]), 'strlen' );
     <?php endif; ?>
 
     <?php if (count($images) > 0): ?>
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-md-6">
         <div style="max-width:600px;">
             <div class="flexslider">
               <ul class="slides">
@@ -66,7 +66,7 @@ $client_info = array_filter(array($deets["client"], $deets["date"]), 'strlen' );
     <?php endif; ?>
 
     <?php if ($post->post_content): ?>
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-md-6">
         <div class="project-description">
             <?php echo apply_filters( 'projects_description', the_content() ); ?>
         </div>
