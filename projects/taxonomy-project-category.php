@@ -4,8 +4,8 @@
  *
  * Override this template by copying it to yourtheme/projects/taxonomy-project-category.php
  *
- * @author 		WooThemes
- * @package 	Projects/Templates
+ * @author      WooThemes
+ * @package     Projects/Templates
  * @version     1.0.0
  */
 

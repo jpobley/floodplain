@@ -4,8 +4,8 @@
  *
  * Override this template by copying it to yourtheme/projects/content-project-widget.php
  *
- * @author 		WooThemes
- * @package 	Projects/Templates
+ * @author      WooThemes
+ * @package     Projects/Templates
  * @version     1.0.0
  */
 
@@ -15,12 +15,12 @@ global $post, $project;
 ?>
 <li>
 
-	<a href="<?php the_permalink(); ?>" class="project-permalink">
+    <a href="<?php the_permalink(); ?>" class="project-permalink">
 
-		<?php echo projects_get_project_thumbnail( 'project-thumbnail' ); ?>
+        <?php echo projects_get_project_thumbnail( 'project-thumbnail' ); ?>
 
-		<span class="project-title"><?php the_title(); ?></span>
+        <span class="project-title"><?php the_title(); ?></span>
 
-	</a>
+    </a>
 
 </li>

@@ -4,8 +4,8 @@
  *
  * Override this template by copying it to yourtheme/projects/loop/no-projects-found.php
  *
- * @author 		WooThemes
- * @package 	Projects/Templates
+ * @author      WooThemes
+ * @package     Projects/Templates
  * @version     1.0.0
  */
 
