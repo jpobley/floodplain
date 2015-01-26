@@ -26,20 +26,11 @@ $deets = array(
     "location" => esc_attr( get_post_meta( $post->ID, '_location', true ) ),
     "date"     => esc_attr( get_post_meta( $post->ID, '_date', true ) )
 );
-$client_info = array_filter(array($deets["client"], $deets["date"]), 'strlen' );
 ?>
 <div id="project-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="col-xs-12">
         <h1 class="project-title">
             <?php the_title(); ?>
-            <?php if (count($deets) > 0 ): ?>
-                <br>
-                <small>
-                    <?php
-                    if (count($client_info) > 0) { echo implode(", ", $client_info); }
-                    ?>
-                </small>
-            <?php endif; ?>
         </h1>
     </div>
 
@@ -51,24 +42,48 @@ $client_info = array_filter(array($deets["client"], $deets["date"]), 'strlen' );
 
     <?php if (count($images) > 0): ?>
     <div class="col-xs-12 col-md-6">
-        <div style="max-width:600px;">
-            <div class="flexslider">
-              <ul class="slides">
-                <?php foreach ($images as $src): ?>
-                    <li>
-                        <img class="rounded" src=<?php echo "'" . $src . "'" ?>/>
-                    </li>
-                <?php endforeach; ?>
-              </ul>
-            </div>
+        <div class="flexslider">
+          <ul class="slides">
+            <?php foreach ($images as $src): ?>
+                <li>
+                    <img class="rounded" src=<?php echo "'" . $src . "'" ?>/>
+                </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
     </div>
     <?php endif; ?>
 
     <?php if ($post->post_content): ?>
     <div class="col-xs-12 col-md-6">
-        <div class="project-description">
-            <?php echo apply_filters( 'projects_description', the_content() ); ?>
+        <?php if (count($deets) > 0 ): ?>
+        <div class="project-details row">
+            <div class="col-xs-12">
+            <?php if ($deets["client"]): ?>
+                <div class="project-client col-xs-4">
+                    <h3>client</h3>
+                    <p><?php echo $deets["client"]; ?></p>
+                </div>
+            <?php endif; ?>
+            <?php if ($deets["date"]): ?>
+                <div class="project-date col-xs-4">
+                    <h3>date</h3>
+                    <p><?php echo $deets["date"]; ?></p>
+                </div>
+            <?php endif; ?>
+            <?php if ($deets["location"]): ?>
+                <div class="project-location col-xs-4">
+                    <h3>location</h3>
+                    <p><?php echo $deets["location"]; ?></p>
+                </div>
+            <?php endif; ?>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="project-description row">
+            <div class="col-xs-12">
+                <div class="col-xs-12"><?php echo apply_filters( 'projects_description', the_content() ); ?></div>
+            </div
         </div>
     </div>
     <?php endif; ?>
